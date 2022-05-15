@@ -1,11 +1,20 @@
-import React, { useEffect, useRef } from 'react';
-import { useFormContext, useWatch } from 'react-hook-form';
-import classNames from 'classnames';
-import styles from 'components/formColumns/forms.module.scss';
+import React, { useEffect, useRef } from "react";
+import { useFormContext, useWatch } from "react-hook-form";
+import classNames from "classnames";
+import styles from "components/formColumns/forms.module.scss";
 
 export const CheckBox = (props) => {
-  const { name, label, type, required, placeHolder, min, disabled, classNameLabel, description } =
-    props;
+  const {
+    name,
+    label,
+    type,
+    required,
+    placeHolder,
+    min,
+    disabled,
+    classNameLabel,
+    description,
+  } = props;
   const {
     register,
     formState: { errors, touchedFields },
@@ -25,13 +34,13 @@ export const CheckBox = (props) => {
   return (
     <label
       className={classNames(
-        'form-element',
+        "form-element",
         styles.inputCheckboxLabel,
         {
           [styles.checked]: originalValue,
           [styles.disabled]: disabled,
         },
-        classNameLabel,
+        classNameLabel
       )}
     >
       <input
@@ -43,7 +52,9 @@ export const CheckBox = (props) => {
         disabled={disabled}
       />
       <strong>{label}</strong>
-      {description && <p className={styles.fieldLabelDescription}>{description}</p>}
+      {description && (
+        <p className={styles.fieldLabelDescription}>{description}</p>
+      )}
     </label>
   );
 };

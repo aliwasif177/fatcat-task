@@ -4,29 +4,13 @@ import { TextInput } from "../../components/form/textInput"
 import inputParser from "../../utils/inputParser"
 
 const DataRenderer = (props: any) => {
-
-
-
     const form = useForm({
-        // resolver: {},
         mode: 'all',
         defaultValues: props.dataProps,
         shouldUnregister: true,
     });
-
-
-
-
-
-
     return (
-
-
         <div>
-
-
-
-
             <div>
                 <>
                     <FormProvider {...form}>
@@ -40,28 +24,16 @@ const DataRenderer = (props: any) => {
 
                                                 <TextArea name={key} {...inputParser.formInputParser(key, props.dataProps[key])} />
                                                 :
-
-
                                                 <TextInput name={key}
-
                                                     {...inputParser.formInputParser(key, props.dataProps[key])}
-
                                                 />
                                             }
-
-
-
-
-
                                         </div>
                                         <div>
 
                                             {props.dataProps[key]}
                                         </div>
-
                                     </>
-
-
                                 )
                             })}
                         </form>

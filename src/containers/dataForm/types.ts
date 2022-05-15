@@ -1,11 +1,10 @@
 
 
 
-    export interface Friend {
-        id: number;
-        name: string;
-    }
-
+export interface Friend {
+    id: number;
+    name: string;
+}
 
 export interface dataProps {
     _id: string;

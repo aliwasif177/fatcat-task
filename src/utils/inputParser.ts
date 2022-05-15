@@ -2,9 +2,7 @@ import { regexes } from "../constants/regex"
 
 const formInputParser = (key:string , value:any) => {
     
-    
     if(value){
-    // console.log(value)
     if(value.toString().match(regexes.emailRegex)){
 
         return {
