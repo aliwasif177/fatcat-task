@@ -79,8 +79,78 @@ The major dependencies are listed below:
 
 
 ### Architecture:
-General folder structure:
+General folder structure:  
+
+
 <img width="796" alt="image" src="https://user-images.githubusercontent.com/60692401/213504388-f472729c-4572-449e-92d1-2f67225c01d3.png">
+
+
+
+# App.js
+
+<img width="1558" alt="image" src="https://user-images.githubusercontent.com/60692401/213508124-3616940f-cc1d-47a1-a093-6ffd0976ecca.png">
+
+
+This code defines a React functional component called App that is the entry point of the application.
+
+The component uses the useDispatch hook from the react-redux library to access the dispatch function, which is used to dispatch actions to the store.
+
+It also uses the useSelector hook to access the tenantSuccessStatus and tenantLoadingStatus from the state of the application, which is stored in the apiReducer slice of the store. These values are used to determine the status of the tenant account and the loading status of the application, respectively.
+
+The component loads stripe from the process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY variable, which is passed as an argument to the loadStripe() function from the '@stripe/stripe-js' library. The returned promise is stored in stripePromise variable.
+
+The component uses the useEffect hook to dispatch an action actionCreators.checkStatus() to check the status of the tenant and if the JWT token is present it dispatches an action cartActionsCreator.getCartProducts() to get the cart products.
+
+# Router
+
+<img width="1593" alt="image" src="https://user-images.githubusercontent.com/60692401/213509971-4c72edb0-25d4-4543-9312-7217c3fec466.png">
+
+
+
+# Store
+
+<img width="1576" alt="image" src="https://user-images.githubusercontent.com/60692401/213511373-9744aad8-ed22-48cc-9ddf-4125c38dd9f1.png">
+  
+
+The code imports several modules from different libraries such as 'redux' and 'redux-devtools-extension'.
+
+The code imports combinedReducers from the './reducers' file which is the root Reducer.
+
+It imports mainMiddleware from './middlewares' file which is the main middleware for the application.
+
+The code defines a constant devTools that is a reference to the window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ function and is only set if the DEBUG environment variable is set to true.
+
+It defines a variable enhancer that is used to compose the middleware and dev tools and will be used to configure the store.
+
+The enhancer is set to composeWithDevTools(applyMiddleware(mainMiddleware)) when the DEBUG environment variable is not true and to compose(applyMiddleware(mainMiddleware), devTools) when DEBUG is true.
+
+Finally, the code exports the result of calling the createStore function, passing in the combinedReducers and enhancer as arguments. This creates the store with the combined reducers and the specified enhancer.
+
+# Stripe
+
+<img width="1436" alt="image" src="https://user-images.githubusercontent.com/60692401/213513620-61ef6a1d-5161-4df2-8c32-fa86e16980bf.png">
+
+This code exports a React functional component called Checkout. This component is responsible for handling the checkout process and the payment process using Stripe.
+
+The component imports several modules from the 'react' and '@stripe/react-stripe-js' libraries.
+
+The component defines a constant CARD_ELEMENT_OPTIONS which is an object that contains the styling options for the Stripe payment card element. The options include the color, font family, font size, and the placeholder color of the card element.
+
+The component uses the useEffect hook to call the useStripe and useElements hooks from the '@stripe/react-stripe-js' library. These hooks are used to initialize the Stripe gateway and to manage the card element.
+
+It also uses useDispatch from 'react-redux' to dispatch actions.
+
+The component uses shipmentAmount variable from props.location.state.shipmentAmount to get the amount of shipment from shipment container.
+
+The component uses paymentIntentResponse and PaymentIntentError from redux state to handle payment success and error respectively.
+
+It also uses CardElement from '@stripe/react-stripe-js' to render the card element to the user.
+
+
+
+
+
+
 
 
 
