@@ -2,7 +2,7 @@
 # **Botics AI**  
 Botics is an e-commerce store for Robitics which is built in React where people can browse for robots and their parts and can manufacture their own robots virtually for custom orders. The App is bilingual. supported languages are English and Chinese.    
 
-## **Documentation**  
+# **Documentation**  
 The documentation includes:  
 - **Installation Guide**  
 - **Dependencies**  
@@ -78,7 +78,7 @@ The major dependencies are listed below:
 | Prettier | 2.7.4 | Code formatting |
 
 
-### Architecture:
+## Architecture:
 General folder structure:  
 
 
@@ -86,7 +86,7 @@ General folder structure:
 
 
 
-# App.js
+### App.js
 
 <img width="1558" alt="image" src="https://user-images.githubusercontent.com/60692401/213508124-3616940f-cc1d-47a1-a093-6ffd0976ecca.png">
 
@@ -101,13 +101,13 @@ The component loads stripe from the process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY
 
 The component uses the useEffect hook to dispatch an action actionCreators.checkStatus() to check the status of the tenant and if the JWT token is present it dispatches an action cartActionsCreator.getCartProducts() to get the cart products.
 
-# Router
+### Router
 
 <img width="1593" alt="image" src="https://user-images.githubusercontent.com/60692401/213509971-4c72edb0-25d4-4543-9312-7217c3fec466.png">
 
 
 
-# Store
+### Store
 
 <img width="1576" alt="image" src="https://user-images.githubusercontent.com/60692401/213511373-9744aad8-ed22-48cc-9ddf-4125c38dd9f1.png">
   
@@ -126,7 +126,7 @@ The enhancer is set to composeWithDevTools(applyMiddleware(mainMiddleware)) when
 
 Finally, the code exports the result of calling the createStore function, passing in the combinedReducers and enhancer as arguments. This creates the store with the combined reducers and the specified enhancer.
 
-# Stripe
+### Stripe
 
 <img width="1436" alt="image" src="https://user-images.githubusercontent.com/60692401/213513620-61ef6a1d-5161-4df2-8c32-fa86e16980bf.png">
 
@@ -144,7 +144,11 @@ The component uses shipmentAmount variable from props.location.state.shipmentAmo
 
 The component uses paymentIntentResponse and PaymentIntentError from redux state to handle payment success and error respectively.
 
-It also uses CardElement from '@stripe/react-stripe-js' to render the card element to the user.
+It also uses CardElement from '@stripe/react-stripe-js' to render the card element to the user.  
+
+
+## Deplyment:  
+For deployment we are using Microsoft Azure. You can deploy this project to Azure App Service by creating a new web app, then configuring the web app to run Node.js, and finally deploying your application code to the web app.
 
 
 
